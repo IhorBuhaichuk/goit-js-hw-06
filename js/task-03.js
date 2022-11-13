@@ -14,28 +14,12 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
+const arr = [];
 
-const image = images.map(elem => {
-  const url = elem.url
-  const alt = elem.alt
+for (let i = 0; i < images.length; i += 1) {
+  const liTemplate = `<li><img src="${images[i].url}" alt="${images[i].alt}" width="350px" /> </li>`
+  arr.push(liTemplate);
+}
 
-  return `<li class "gallery-item"> <img src="${url}" alt="${alt}" width = "350px"</li>`
-})
-
-gallery.insertAdjacentHTML("afterbegin", image)
-
-
-// const arr = [];
-
-// for (let i = 0; i < images.length; i += 1) {
-//   const newItem = document.createElement('li');
-//   const newImg = document.createElement('img');
-//   newImg.classList.add('size');
-//   newImg.setAttribute('src', images[i].src-7);
-//   newImg.setAttribute('alt', images[i].alt);
-//   newItem.append(newImg);
-//   console.log(newItem);
-//   arr.push(newItem);
-// }
-
-// gallery.append(...arr);
+gallery.insertAdjacentHTML("afterbegin", arr.join(''));
+console.log(gallery);
